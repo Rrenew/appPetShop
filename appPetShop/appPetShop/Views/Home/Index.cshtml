@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Início";
+}
+
+<div class="hero text-center">
+    <div class="paw"><i class="bi bi-paw-fill"></i></div>
+    <h1 class="display-5">Bem-vindo(a) ao Patas &amp; Carinho</h1>
+    <p class="lead mb-0">
+        @if (User.Identity != null && User.Identity.IsAuthenticated)
+        {
+            <span>Olá, @User.Identity.Name! O que vamos fazer hoje?</span>
+        }
+        else
+        {
+            <span>Cuidado e carinho para o seu melhor amigo.</span>
+        }
+    </p>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <a class="menu-card" asp-controller="ReservaServico" asp-action="Index">
+            <i class="bi bi-calendar-check"></i>
+            <h3>Reservas</h3>
+            <p>Agende e acompanhe os atendimentos.</p>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a class="menu-card" asp-controller="Cliente" asp-action="Index">
+            <i class="bi bi-people"></i>
+            <h3>Clientes</h3>
+            <p>Cadastro dos tutores dos pets.</p>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a class="menu-card" asp-controller="Veterinario" asp-action="Index">
+            <i class="bi bi-heart-pulse"></i>
+            <h3>Veterinários</h3>
+            <p>Equipe e especialidades.</p>
+        </a>
+    </div>
+</div>

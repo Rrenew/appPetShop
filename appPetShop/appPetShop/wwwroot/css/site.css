@@ -1,0 +1,226 @@
+:root {
+    --pet-primary: #2a9d8f;
+    --pet-primary-dark: #1f776c;
+    --pet-accent: #f4a261;
+    --pet-bg: #f4f8f7;
+    --pet-text: #264653;
+}
+
+html {
+    font-size: 15px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    background: var(--pet-bg);
+    color: var(--pet-text);
+    margin-bottom: 70px;
+}
+
+/* Navbar */
+.pet-navbar {
+    background: linear-gradient(90deg, var(--pet-primary-dark), var(--pet-primary));
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+    .pet-navbar .navbar-brand {
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: .5px;
+    }
+
+    .pet-navbar .nav-link {
+        color: rgba(255,255,255,.85);
+        font-weight: 500;
+        border-radius: 8px;
+        padding: .45rem .9rem;
+    }
+
+        .pet-navbar .nav-link:hover {
+            color: #fff;
+            background: rgba(255,255,255,.15);
+        }
+
+    .pet-navbar .user-name {
+        color: #fff;
+        font-size: .9rem;
+    }
+
+/* Cabeçalho das páginas */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-bottom: 1.25rem;
+}
+
+    .page-header h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+        .page-header h1 i {
+            color: var(--pet-primary);
+            margin-right: .4rem;
+        }
+
+/* Cartão da tabela */
+.pet-card {
+    background: #fff;
+    border: 0;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(38,70,83,.08);
+    overflow: hidden;
+}
+
+.pet-table {
+    margin: 0;
+}
+
+    .pet-table thead th {
+        background: var(--pet-primary);
+        color: #fff;
+        border: 0;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: .78rem;
+        letter-spacing: .5px;
+        padding: .9rem 1rem;
+    }
+
+    .pet-table tbody td {
+        padding: .85rem 1rem;
+        vertical-align: middle;
+    }
+
+    .pet-table tbody tr:hover {
+        background: #eef7f5;
+    }
+
+/* Botões */
+.btn-pet {
+    background: var(--pet-primary);
+    border-color: var(--pet-primary);
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+    .btn-pet:hover {
+        background: var(--pet-primary-dark);
+        border-color: var(--pet-primary-dark);
+        color: #fff;
+    }
+
+.btn-icon {
+    border-radius: 8px;
+    padding: .25rem .55rem;
+}
+
+/* Status das reservas */
+.status-badge {
+    padding: .4rem .75rem;
+    border-radius: 20px;
+    font-size: .8rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.status-agendada {
+    background: #e9a23b;
+}
+
+.status-realizada {
+    background: #2a9d8f;
+}
+
+.status-cancelada {
+    background: #d1495b;
+}
+
+/* Home */
+.hero {
+    background: linear-gradient(135deg, var(--pet-primary), var(--pet-primary-dark));
+    color: #fff;
+    border-radius: 18px;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 24px rgba(42,157,143,.3);
+}
+
+    .hero h1 {
+        font-weight: 700;
+    }
+
+    .hero .paw {
+        font-size: 3.5rem;
+    }
+
+.menu-card {
+    display: block;
+    text-decoration: none;
+    color: var(--pet-text);
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(38,70,83,.08);
+    transition: transform .2s, box-shadow .2s;
+    height: 100%;
+}
+
+    .menu-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 24px rgba(38,70,83,.18);
+        color: var(--pet-text);
+    }
+
+    .menu-card i {
+        font-size: 2.8rem;
+        color: var(--pet-primary);
+    }
+
+    .menu-card h3 {
+        font-size: 1.25rem;
+        margin-top: .75rem;
+        font-weight: 700;
+    }
+
+    .menu-card p {
+        margin: 0;
+        color: #6c8089;
+    }
+
+/* Login e formulários */
+.form-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(38,70,83,.1);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--pet-primary);
+    box-shadow: 0 0 0 .2rem rgba(42,157,143,.2);
+}
+
+/* Rodapé */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 60px;
+    background: #fff;
+    border-top: 1px solid #dde7e5;
+    color: #6c8089;
+}

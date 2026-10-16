@@ -1,0 +1,45 @@
+﻿@model IEnumerable<appPetShop.Models.Veterinario>
+
+@{
+    ViewData["Title"] = "Veterinários";
+}
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger"><i class="bi bi-exclamation-triangle"></i> @TempData["Erro"]</div>
+}
+
+<div class="page-header">
+    <h1><i class="bi bi-heart-pulse"></i>Veterinários</h1>
+    <a class="btn btn-pet" asp-action="Create"><i class="bi bi-plus-lg"></i> Novo veterinário</a>
+</div>
+
+<div class="pet-card">
+    <div class="table-responsive">
+        <table class="table pet-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CRMV</th>
+                    <th>Especialidade</th>
+                    <th class="text-end">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><strong>@item.Nome</strong></td>
+                        <td>@item.Crmv</td>
+                        <td>@item.Especialidade</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-outline-primary btn-icon" asp-action="Edit" asp-route-id="@item.Codigo" title="Editar"><i class="bi bi-pencil"></i></a>
+                            <a class="btn btn-sm btn-outline-secondary btn-icon" asp-action="Details" asp-route-id="@item.Codigo" title="Detalhes"><i class="bi bi-eye"></i></a>
+                            <a class="btn btn-sm btn-outline-danger btn-icon" asp-action="Delete" asp-route-id="@item.Codigo" title="Excluir"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

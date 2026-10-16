@@ -1,0 +1,57 @@
+﻿@model IEnumerable<appPetShop.Models.ReservaServico>
+
+@{
+    ViewData["Title"] = "Reservas";
+    var ptBR = new System.Globalization.CultureInfo("pt-BR");
+}
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger"><i class="bi bi-exclamation-triangle"></i> @TempData["Erro"]</div>
+}
+
+<div class="page-header">
+    <h1><i class="bi bi-calendar-check"></i>Reservas de serviço</h1>
+    <a class="btn btn-pet" asp-action="Create"><i class="bi bi-plus-lg"></i> Nova reserva</a>
+</div>
+
+<div class="pet-card">
+    <div class="table-responsive">
+        <table class="table pet-table">
+            <thead>
+                <tr>
+                    <th>Data / Hora</th>
+                    <th>Cliente</th>
+                    <th>Veterinário</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                    <th class="text-end">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var classeStatus = item.StatusServico switch
+                    {
+                        "Agendada" => "status-agendada",
+                        "Realizada" => "status-realizada",
+                        "Cancelada" => "status-cancelada",
+                        _ => "bg-secondary"
+                    };
+                    <tr>
+                        <td>@item.DataHora.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td><strong>@item.Cliente.Nome</strong></td>
+                        <td>@item.Veterinario.Nome</td>
+                        <td>@item.Valor.ToString("C2", ptBR)</td>
+                        <td><span class="status-badge @classeStatus">@item.StatusServico</span></td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-outline-primary btn-icon" asp-action="Edit" asp-route-id="@item.Codigo" title="Editar"><i class="bi bi-pencil"></i></a>
+                            <a class="btn btn-sm btn-outline-secondary btn-icon" asp-action="Details" asp-route-id="@item.Codigo" title="Detalhes"><i class="bi bi-eye"></i></a>
+                            <a class="btn btn-sm btn-outline-danger btn-icon" asp-action="Delete" asp-route-id="@item.Codigo" title="Excluir"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
